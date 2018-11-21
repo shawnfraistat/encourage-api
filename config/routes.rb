@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   resources :examples, except: %i[new edit]
 
   # Custom routes
+  # Users
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
+
+  # Advices
+  get '/random-advice' => 'advices#getrandom'
 end

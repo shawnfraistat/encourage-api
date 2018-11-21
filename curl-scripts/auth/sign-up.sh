@@ -8,7 +8,10 @@ curl "http://localhost:4741/sign-up" \
     "credentials": {
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
+      "password_confirmation": "'"${PASSWORD}"'",
+      "first_name": "'"${FIRST}"'",
+      "last_name": "'"${LAST}"'",
+      "tags": "general coding bleak"
     }
   }'
 

@@ -1,9 +1,9 @@
-class AdvicesController < ApplicationController
+class AdvicesController < ProtectedController
   before_action :set_advice, only: [:show, :update, :destroy]
 
   # GET /advices
   def index
-    @advices = Advice.all
+    @advices = current_user.advices
 
     render json: @advices
   end
@@ -13,9 +13,20 @@ class AdvicesController < ApplicationController
     render json: @advice
   end
 
+  # GET /random-advice
+  def getrandom
+    user_tags = current_user.tags.split(' ')
+    advice_list = []
+    user_tags.each do |tag|
+      advice_list << Advice.where(current_user.tags.split(' ').include?(tag))
+    end
+    @advice = advice_list.sample
+    render json: @advice
+  end
+
   # POST /advices
   def create
-    @advice = Advice.new(advice_params)
+    @advice = current_user.advices.build(advice_params)
 
     if @advice.save
       render json: @advice, status: :created, location: @advice
