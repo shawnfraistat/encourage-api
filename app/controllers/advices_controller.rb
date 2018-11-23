@@ -21,7 +21,9 @@ class AdvicesController < ProtectedController
       advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) }
     end
     @advice = advice_list.flatten.sample
-    puts @advice
+    source_user = User.find(@advice.user_id)
+    @advice.first_name = source_user.first_name
+    @advice.last_name = source_user.last_name.chr + '.'
     render json: @advice
   end
 

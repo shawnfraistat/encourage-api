@@ -1,4 +1,4 @@
 class AdviceSerializer < ActiveModel::Serializer
-  attributes :id, :content, :tags, :upvotes, :approved
+  attributes :id, :content, :tags, :upvotes, :approved, :user, :first_name, :last_name
   has_one :user
 end
