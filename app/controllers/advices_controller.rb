@@ -18,11 +18,13 @@ class AdvicesController < ProtectedController
     user_tags = current_user.tags.split(' ')
     advice_list = []
     user_tags.each do |tag|
-      advice_list << Advice.where(current_user.tags.split(' ').include?(tag))
+      advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) }
     end
-    @advice = advice_list.sample
+    @advice = advice_list.flatten.sample
+    puts @advice
     render json: @advice
   end
+
 
   # POST /advices
   def create
