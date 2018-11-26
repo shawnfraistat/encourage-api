@@ -41,7 +41,9 @@ class AdvicesController < ProtectedController
 
   # PATCH/PUT /advices/1
   def update
-    if @advice.update(advice_params)
+    puts '@advise is', @advice
+    @advice.upvotes += 1
+    if @advice.save
       render json: @advice
     else
       render json: @advice.errors, status: :unprocessable_entity
