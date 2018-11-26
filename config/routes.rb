@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # Custom routes
   # Users
+  get '/users/:id' => 'users#getuseradvices'
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'

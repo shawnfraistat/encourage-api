@@ -3,6 +3,12 @@
 class UsersController < ProtectedController
   skip_before_action :authenticate, only: %i[signup signin]
 
+  # GET '/users/:id'
+  def getuseradvices
+    @advices = current_user.advices
+    render json: @advices
+  end
+
   # POST '/sign-up'
   def signup
     user = User.create(user_creds)
