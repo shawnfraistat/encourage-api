@@ -15,18 +15,24 @@ class AdvicesController < ProtectedController
 
   # GET /random-advice
   def getrandom
-    user_tags = current_user.tags.split(' ')
     advice_list = []
+    final_list = []
+    user_tags = current_user.tags.split(' ')
     user_tags.each do |tag|
       advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) }
     end
-    @advice = advice_list.flatten.sample
+    upvote_count = Advice.all.reduce(0) { |acc, advice| acc + advice.upvotes }
+    advice_list.flatten.each do |advice|
+      final_list << advice
+      final_list << advice if advice.upvotes >= (upvote_count * 0.66)
+      final_list << advice if advice.upvotes >= (upvote_count * 0.33)
+    end
+    @advice = final_list.sample
     source_user = User.find(@advice.user_id)
     @advice.first_name = source_user.first_name
     @advice.last_name = source_user.last_name.chr + '.'
     render json: @advice
   end
-
 
   # POST /advices
   def create
@@ -41,7 +47,6 @@ class AdvicesController < ProtectedController
 
   # PATCH/PUT /advices/1
   def update
-    puts '@advise is', @advice
     @advice.upvotes += 1
     if @advice.save
       render json: @advice
