@@ -1,5 +1,5 @@
 class AdvicesController < ProtectedController
-  before_action :set_advice, only: [:show, :update, :destroy]
+  before_action :set_advice, only: [:show, :update, :unapprove, :destroy]
 
   # GET /advices
   def index
@@ -48,6 +48,16 @@ class AdvicesController < ProtectedController
   # PATCH/PUT /advices/1
   def update
     @advice.approved = 'true'
+    if @advice.save
+      render json: @advice
+    else
+      render json: @advice.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /advices/unapprove/1
+  def unapprove
+    @advice.approved = 'false'
     if @advice.save
       render json: @advice
     else

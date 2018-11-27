@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   # Advices
   get '/random-advice' => 'advices#getrandom'
+  patch 'advices/unapprove/:id' => 'advices#unapprove'
 
   # Likes
   post '/likes/:id' => 'likes#create'
