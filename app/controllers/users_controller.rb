@@ -52,6 +52,17 @@ class UsersController < ProtectedController
     end
   end
 
+  def change_tags
+    puts 'params is', params
+    puts 'params[:tags] is', params[:tags]
+    current_user.tags = params[:tags]
+    if current_user.save
+      head :no_content
+    else
+      head :bad_request
+    end
+  end
+
   private
 
   def user_creds
