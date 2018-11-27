@@ -53,8 +53,6 @@ class UsersController < ProtectedController
   end
 
   def change_tags
-    puts 'params is', params
-    puts 'params[:tags] is', params[:tags]
     current_user.tags = params[:tags]
     if current_user.save
       head :no_content
@@ -67,7 +65,7 @@ class UsersController < ProtectedController
 
   def user_creds
     params.require(:credentials)
-          .permit(:email, :password, :password_confirmation, :tags, :first_name, :last_name)
+          .permit(:email, :password, :password_confirmation, :tags, :first_name, :last_name, :admin)
   end
 
   def pw_creds
