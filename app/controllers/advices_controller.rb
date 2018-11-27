@@ -3,7 +3,7 @@ class AdvicesController < ProtectedController
 
   # GET /advices
   def index
-    @advices = current_user.advices
+    @advices = Advice.all
 
     render json: @advices
   end
@@ -46,14 +46,14 @@ class AdvicesController < ProtectedController
   end
 
   # PATCH/PUT /advices/1
-  # def update
-  #   @advice.upvotes += 1
-  #   if @advice.save
-  #     render json: @advice
-  #   else
-  #     render json: @advice.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    @advice.approved = 'true'
+    if @advice.save
+      render json: @advice
+    else
+      render json: @advice.errors, status: :unprocessable_entity
+    end
+  end
 
   # DELETE /advices/1
   def destroy
