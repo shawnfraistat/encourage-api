@@ -19,7 +19,7 @@ class AdvicesController < ProtectedController
     final_list = []
     user_tags = current_user.tags.split(' ')
     user_tags.each do |tag|
-      advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) }
+      advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) && advice.approved == "true"}
     end
     upvote_count = Like.all.length
     advice_list.flatten.each do |advice|
