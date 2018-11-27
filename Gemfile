@@ -12,6 +12,7 @@ gem 'rails', '~> 5.2.1'
 
 group :development, :test do
   gem 'byebug', '~> 10.0.0', platform: :mri
+  gem 'rails-erd'
   gem 'dotenv-rails', '~> 2.2.1'
   gem 'pry', '~> 0.11.3'
   gem 'pry-byebug', '~> 3.6.0'

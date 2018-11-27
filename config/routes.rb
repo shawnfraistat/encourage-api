@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :advices, except: %i[new edit]
+  resources :advices, except: %i[new edit update]
   # RESTful routes
   resources :examples, except: %i[new edit]
 
@@ -15,4 +15,8 @@ Rails.application.routes.draw do
 
   # Advices
   get '/random-advice' => 'advices#getrandom'
+
+  # Likes
+  post '/likes/:id' => 'likes#create'
+  delete '/likes/:id' => 'likes#destroy'
 end

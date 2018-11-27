@@ -21,11 +21,11 @@ class AdvicesController < ProtectedController
     user_tags.each do |tag|
       advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) }
     end
-    upvote_count = Advice.all.reduce(0) { |acc, advice| acc + advice.upvotes }
+    upvote_count = Like.all.length
     advice_list.flatten.each do |advice|
       final_list << advice
-      final_list << advice if advice.upvotes >= (upvote_count * 0.66)
-      final_list << advice if advice.upvotes >= (upvote_count * 0.33)
+      final_list << advice if advice.likes.length >= (upvote_count * 0.66)
+      final_list << advice if advice.likes.length >= (upvote_count * 0.33)
     end
     @advice = final_list.sample
     source_user = User.find(@advice.user_id)
@@ -46,14 +46,14 @@ class AdvicesController < ProtectedController
   end
 
   # PATCH/PUT /advices/1
-  def update
-    @advice.upvotes += 1
-    if @advice.save
-      render json: @advice
-    else
-      render json: @advice.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   @advice.upvotes += 1
+  #   if @advice.save
+  #     render json: @advice
+  #   else
+  #     render json: @advice.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /advices/1
   def destroy
@@ -68,6 +68,6 @@ class AdvicesController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def advice_params
-      params.require(:advice).permit(:content, :tags, :upvotes, :approved, :user_id)
+      params.require(:advice).permit(:content, :tags, :likes, :approved, :user_id)
     end
 end
