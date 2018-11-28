@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :examples
   has_many :advices, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end

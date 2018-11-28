@@ -10,6 +10,9 @@ class AdvicesController < ProtectedController
 
   # GET /advices/1
   def show
+    source_user = User.find(@advice.user_id)
+    @advice.first_name = source_user.first_name
+    @advice.last_name = source_user.last_name.chr + '.'
     render json: @advice
   end
 
@@ -68,6 +71,15 @@ class AdvicesController < ProtectedController
   # DELETE /advices/1
   def destroy
     @advice.destroy
+  end
+
+  # GET /get-favorites
+  # returns favorited advices belonging to current user
+  def getfavorites
+    favorite_advice_ids = []
+    current_user.favorites.each { |favorite| favorite_advice_ids << favorite.advice_id }
+    @favorite_advices = Advice.all.select { |element| favorite_advice_ids.include? element.id }
+    render json: @favorite_advices
   end
 
   private

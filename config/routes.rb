@@ -16,9 +16,14 @@ Rails.application.routes.draw do
 
   # Advices
   get '/random-advice' => 'advices#getrandom'
+  get '/get-favorites' => 'advices#getfavorites'
   patch 'advices/unapprove/:id' => 'advices#unapprove'
 
   # Likes
   post '/likes/:id' => 'likes#create'
   delete '/likes/:id' => 'likes#destroy'
+
+  # Favorites
+  post '/favorites/:id' => 'favorites#create'
+  delete '/favorites/:id' => 'favorites#destroy'
 end
