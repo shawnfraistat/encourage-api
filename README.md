@@ -1,11 +1,5 @@
 README
 
-<<<<<<< HEAD
-
-# rails-api-template
-=======
->>>>>>> development
-
 Description:
 
 This app shares advice and encouragement with users, based upon their interest
