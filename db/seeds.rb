@@ -1,11 +1,80 @@
-# frozen_string_literal: true
-
-# This file should contain all the record creation needed to seed the database
-# with its default values.
-# The data can then be loaded with the rails db:seed (or created alongside the
-# db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!([
+  {email: "test2@test.com", password: "password", password_confirmation: "password", tags: "general coding bleak", first_name: "John", last_name: "Doe", admin: nil},
+  {email: "test@test.com", password: "password", password_confirmation: "password", tags: "general coding bleak", first_name: "John", last_name: "Doe", admin: nil},
+  {email: "test", password: "password", password_confirmation: "password", tags: "general ", first_name: "test", last_name: "test", admin: nil},
+  {email: "test3", password: "password", password_confirmation: "password", tags: "general ", first_name: "test", last_name: "test", admin: nil},
+  {email: "ash@123.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "Kleide", last_name: "Bien-Aime", admin: nil},
+  {email: "nate@aol.com", password: "password", password_confirmation: "password", tags: "general bleak ", first_name: "nate", last_name: "suri", admin: "false"},
+  {email: "test5", password: "password", password_confirmation: "password", tags: "general ", first_name: "test", last_name: "test", admin: nil},
+  {email: "ee@e.com", password: "password", password_confirmation: "password", tags: "general ", first_name: "Eliz", last_name: "B", admin: nil},
+  {email: "shawn@shawn.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "Shawn", last_name: "Fraistat", admin: "true"},
+  {email: "neil@neil.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "Neil", last_name: "Neil", admin: nil},
+  {email: "s.solanke.ss@gmail.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "Seyi", last_name: "Solanke", admin: nil},
+  {email: "rob@test.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "Rob", last_name: "Clark", admin: nil},
+  {email: "jbone@gmail.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "Josh", last_name: "Vieira", admin: nil},
+  {email: "ef@ga.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "elsie", last_name: "fernandez", admin: nil},
+  {email: "a@a.com", password: "password", password_confirmation: "password", tags: "general ", first_name: "Antonio", last_name: "K", admin: "false"},
+  {email: "23223", password: "password", password_confirmation: "password", tags: "general ", first_name: "23", last_name: "23", admin: nil},
+  {email: "eli@my.mail", password: "password", password_confirmation: "password", tags: "", first_name: "Eli", last_name: "Wellington", admin: nil},
+  {email: "test7", password: "password", password_confirmation: "password", tags: "general ", first_name: "test", last_name: "test", admin: nil},
+  {email: "black@powerranger.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "michael", last_name: "rai", admin: nil},
+  {email: "232323", password: "password", password_confirmation: "password", tags: "general ", first_name: "3", last_name: "3", admin: nil},
+  {email: "test10", password: "password", password_confirmation: "password", tags: "general ", first_name: "test", last_name: "test", admin: nil},
+  {email: "x@ia.com", password: "password", password_confirmation: "password", tags: "general ", first_name: "Xia", last_name: "Jo", admin: nil},
+  {email: "test22", password: "password", password_confirmation: "password", tags: "general ", first_name: "First", last_name: "Last", admin: "false"},
+  {email: "johnz@johnz.com", password: "password", password_confirmation: "password", tags: "general ", first_name: "John", last_name: "Z", admin: "false"},
+  {email: "sf@gmail.com", password: "password", password_confirmation: "password", tags: "general ", first_name: "sue", last_name: "fakunle", admin: "false"},
+  {email: "rich@rich.com", password: "password", password_confirmation: "password", tags: "general ", first_name: "Rich", last_name: "A", admin: "false"},
+  {email: "ann@ann.com", password: "password", password_confirmation: "password", tags: "general coding bleak ", first_name: "Ann", last_name: "Banana", admin: nil}
+])
+Advice.create!([
+  {content: "You'll figure it out... maybe.", tags: "bleak ", approved: "true", user_id: 26},
+  {content: "When life gives you lemons...\nmake sure they're organic..start a lemonade stand, accept bitcoin.", tags: "general ", approved: "true", user_id: 27},
+  {content: "An apple a day keeps the doctor away.", tags: "general ", approved: "true", user_id: 3},
+  {content: "When in doubt, drink tea.", tags: "general ", approved: "true", user_id: 3},
+  {content: "Don't forget to smile!", tags: "general ", approved: "true", user_id: 7},
+  {content: "Keep going, you're halfway there!", tags: "general ", approved: "true", user_id: 8},
+  {content: "Be yourself, try to bring all the things that make you YOU into your work. It will feel more worth it, and you never know who you may inspire!", tags: "general coding ", approved: "true", user_id: 21},
+  {content: "When you're under pressure, try not to stress.", tags: "general ", approved: "true", user_id: 16},
+  {content: "everyone is doing a great job keep ya head up homies!", tags: "general coding ", approved: "true", user_id: 9},
+  {content: "test", tags: "general ", approved: "false", user_id: 5},
+  {content: "Sometimes, it's ok to let go of control and walk in faith.", tags: "general ", approved: "true", user_id: 6},
+  {content: "Never let the smallest things stop you from what you want, everything has its ups and downs. Work for what you want, not for whats the easiest.", tags: "general coding ", approved: "true", user_id: 10},
+  {content: "Life doesnt like stagnation, keep walking always move forward", tags: "general ", approved: "true", user_id: 12},
+  {content: "What would Jesus code?", tags: "coding bleak ", approved: "true", user_id: 13},
+  {content: "What doesn't kill you is still pretty stressful.", tags: "bleak ", approved: "true", user_id: 5},
+  {content: "look in the mirror everyday and find 5 things you love or like about yourself each day. ", tags: "general ", approved: "true", user_id: 24},
+  {content: "If you want a blessing, be one!", tags: "general ", approved: "true", user_id: 25}
+])
+Favorite.create!([
+  {user_id: 3, advice_id: 5},
+  {user_id: 3, advice_id: 7},
+  {user_id: 3, advice_id: 15},
+  {user_id: 3, advice_id: 1},
+  {user_id: 3, advice_id: 17},
+  {user_id: 3, advice_id: 17},
+  {user_id: 3, advice_id: 14},
+  {user_id: 5, advice_id: 9},
+  {user_id: 5, advice_id: 16}
+])
+Like.create!([
+  {advice_id: 1, user_id: 12},
+  {advice_id: 6, user_id: 13},
+  {advice_id: 3, user_id: 5},
+  {advice_id: 9, user_id: 3},
+  {advice_id: 1, user_id: 3},
+  {advice_id: 3, user_id: 3},
+  {advice_id: 7, user_id: 3},
+  {advice_id: 6, user_id: 3},
+  {advice_id: 2, user_id: 3},
+  {advice_id: 9, user_id: 3},
+  {advice_id: 6, user_id: 3},
+  {advice_id: 1, user_id: 3},
+  {advice_id: 2, user_id: 5},
+  {advice_id: 1, user_id: 3},
+  {advice_id: 8, user_id: 5},
+  {advice_id: 5, user_id: 3},
+  {advice_id: 1, user_id: 3},
+  {advice_id: 6, user_id: 3},
+  {advice_id: 8, user_id: 3}
+])
