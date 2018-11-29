@@ -3,6 +3,12 @@
 class UsersController < ProtectedController
   skip_before_action :authenticate, only: %i[signup signin]
 
+  # GET '/users/:id'
+  def getuseradvices
+    @advices = current_user.advices
+    render json: @advices
+  end
+
   # POST '/sign-up'
   def signup
     user = User.create(user_creds)
@@ -46,11 +52,20 @@ class UsersController < ProtectedController
     end
   end
 
+  def change_tags
+    current_user.tags = params[:tags]
+    if current_user.save
+      head :no_content
+    else
+      head :bad_request
+    end
+  end
+
   private
 
   def user_creds
     params.require(:credentials)
-          .permit(:email, :password, :password_confirmation)
+          .permit(:email, :password, :password_confirmation, :tags, :first_name, :last_name, :admin)
   end
 
   def pw_creds
