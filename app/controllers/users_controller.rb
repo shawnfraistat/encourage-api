@@ -52,6 +52,8 @@ class UsersController < ProtectedController
     end
   end
 
+  # PATCH 'change-tags'
+  # updates the tags specifying the kinds of advice user wants to view
   def change_tags
     current_user.tags = params[:tags]
     if current_user.save

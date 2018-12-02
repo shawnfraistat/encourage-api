@@ -17,6 +17,13 @@ class AdvicesController < ProtectedController
   end
 
   # GET /random-advice
+  # this method returns a random piece of advice to the client
+  # it filters all the available advice and only returns advice that is tagged
+  # with one of the categories the user is interested in
+  # it also filters out advice that hasn't been approved
+  # finally, the advice is selected from a filtered array with a weighted random
+  # pieces of advice are added to the array twice if they've been liked two
+  # times more than the average, and thrice if liked three times more
   def getrandom
     advice_list = []
     final_list = []
@@ -24,11 +31,12 @@ class AdvicesController < ProtectedController
     user_tags.each do |tag|
       advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) && advice.approved == "true"}
     end
-    upvote_count = Like.all.length
-    advice_list.flatten.each do |advice|
+    advice_list.flatten!
+    upvote_avg = Like.all.length / advise_list.length
+    advice_list.each do |advice|
       final_list << advice
-      final_list << advice if advice.likes.length >= (upvote_count * 0.66)
-      final_list << advice if advice.likes.length >= (upvote_count * 0.33)
+      final_list << advice if advice.likes.length >= (upvote_avg * 3)
+      final_list << advice if advice.likes.length >= (upvote_avg * 2)
     end
     @advice = final_list.sample
     source_user = User.find(@advice.user_id)
