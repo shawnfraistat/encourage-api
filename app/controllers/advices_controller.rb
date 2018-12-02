@@ -32,7 +32,7 @@ class AdvicesController < ProtectedController
       advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) && advice.approved == "true"}
     end
     advice_list.flatten!
-    upvote_avg = Like.all.length / advise_list.length
+    upvote_avg = Like.all.length / advice_list.length
     advice_list.each do |advice|
       final_list << advice
       final_list << advice if advice.likes.length >= (upvote_avg * 3)

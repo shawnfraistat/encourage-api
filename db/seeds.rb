@@ -35,15 +35,15 @@ Advice.create!([
   {content: "Don't forget to smile!", tags: "general ", approved: "true", user_id: 5},
   {content: "Keep going, you're halfway there!", tags: "general ", approved: "true", user_id: 7},
   {content: "Be yourself, try to bring all the things that make you YOU into your work. It will feel more worth it, and you never know who you may inspire!", tags: "general coding ", approved: "true", user_id: 22},
-  {content: "When you're under pressure, try not to stress.", tags: "general ", approved: "true", user_id: 15},
-  {content: "everyone is doing a great job keep ya head up homies!", tags: "general coding ", approved: "true", user_id: 8},
+  {content: "When you're under pressure, try not to stress.", tags: "general ", approved: "true", user_id: 8},
+  {content: "everyone is doing a great job keep ya head up homies!", tags: "general coding ", approved: "true", user_id: 14},
   {content: "test", tags: "general ", approved: "false", user_id: 5},
   {content: "Sometimes, it's ok to let go of control and walk in faith.", tags: "general ", approved: "true", user_id: 19},
-  {content: "Never let the smallest things stop you from what you want, everything has its ups and downs. Work for what you want, not for whats the easiest.", tags: "general coding ", approved: "true", user_id: 10},
+  {content: "Never let the smallest things stop you from what you want, everything has its ups and downs. Work for what you want, not for whats the easiest.", tags: "general coding ", approved: "true", user_id: 15},
   {content: "Life doesnt like stagnation, keep walking always move forward", tags: "general ", approved: "true", user_id: 11},
   {content: "What would Jesus code?", tags: "coding bleak ", approved: "true", user_id: 12},
   {content: "What doesn't kill you is still pretty stressful.", tags: "bleak ", approved: "true", user_id: 9},
-  {content: "look in the mirror everyday and find 5 things you love or like about yourself each day. ", tags: "general ", approved: "true", user_id: 24},
+  {content: "look in the mirror everyday and find 5 things you love or like about yourself each day. ", tags: "general ", approved: "true", user_id: 13},
   {content: "If you want a blessing, be one!", tags: "general ", approved: "true", user_id: 25}
 ])
 Favorite.create!([
