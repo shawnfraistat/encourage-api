@@ -32,6 +32,8 @@ class AdvicesController < ProtectedController
       advice_list << Advice.all.select { |advice| advice.tags.split(' ').include?(tag) && advice.approved == "true"}
     end
     advice_list.flatten!
+    return nil if advice_list.empty?
+
     upvote_avg = Like.all.length / advice_list.length
     advice_list.each do |advice|
       final_list << advice
