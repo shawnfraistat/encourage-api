@@ -33,7 +33,7 @@ Advice.create!([
   {content: "An apple a day keeps the doctor away.", tags: "general ", approved: "true", user_id: 9},
   {content: "When in doubt, drink tea.", tags: "general ", approved: "true", user_id: 27},
   {content: "Don't forget to smile!", tags: "general ", approved: "true", user_id: 5},
-  {content: "Keep going, you're halfway there!", tags: "general ", approved: "true", user_id: 7},
+  {content: "Keep going, you're halfway there!", tags: "general ", approved: "true", user_id: 6},
   {content: "Be yourself, try to bring all the things that make you YOU into your work. It will feel more worth it, and you never know who you may inspire!", tags: "general coding ", approved: "true", user_id: 22},
   {content: "When you're under pressure, try not to stress.", tags: "general ", approved: "true", user_id: 8},
   {content: "everyone is doing a great job keep ya head up homies!", tags: "general coding ", approved: "true", user_id: 14},
