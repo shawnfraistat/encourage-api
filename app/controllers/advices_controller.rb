@@ -87,9 +87,14 @@ class AdvicesController < ProtectedController
   # returns favorited advices belonging to current user
   def getfavorites
     favorite_advice_ids = []
-    current_user.favorites.each { |favorite| favorite_advice_ids << favorite.advice_id }
-    @favorite_advices = Advice.all.select { |element| favorite_advice_ids.include? element.id }
-    render json: @favorite_advices
+    empty_favorite = { advices: [] }
+    if current_user.favorites.empty?
+        render json: empty_favorite
+    else
+      current_user.favorites.each { |favorite| favorite_advice_ids << favorite.advice_id }
+      @favorite_advices = Advice.all.select { |element| favorite_advice_ids.include? element.id }
+      render json: @favorite_advices
+    end
   end
 
   private
